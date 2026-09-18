@@ -8,6 +8,7 @@ public class Jogodavelha extends JFrame {
     Jogador jogador2;
     JLabel jogadores;
 
+
     public Jogodavelha() {
 
 
@@ -20,8 +21,8 @@ public class Jogodavelha extends JFrame {
         if (sexo1.equals("1")) {
             nome1 = JOptionPane.showInputDialog(
                     "Escolha o seu personagem:\n\n"
-                            + "1- Matheus 1\n\n" +
-                            "2 - Chico bento 2\n" +
+                            + "1- Matheus\n\n" +
+                            "2 - Chico bento\n" +
                             "3 - Chico"
             );
             if (nome1.equals("1")) {
@@ -53,8 +54,8 @@ public class Jogodavelha extends JFrame {
         if (sexo2.equals("1")) {
             nome2 = JOptionPane.showInputDialog(
                     "Escolha o seu personagem:\n\n"
-                            + "1-  Matheus 1\n\n" +
-                            "2 - Chico bento 2\n" +
+                            + "1- Matheus \n\n" +
+                            "2 - Chico bento \n" +
                             "3 - Chico"
             );
             if (nome2.equals("1")) {
@@ -117,6 +118,7 @@ public class Jogodavelha extends JFrame {
                         95
                 );
 
+
                 cont++;
             }
         }
@@ -135,6 +137,7 @@ public class Jogodavelha extends JFrame {
 
                         click[posicao] = true;
                         mudar(bt[posicao]);
+                        verificarVitoria();
 
                     }
                 }
@@ -142,6 +145,7 @@ public class Jogodavelha extends JFrame {
 
         }
     }
+
     public void mudar(JButton btn) {
 
         if (xo) {
@@ -153,6 +157,17 @@ public class Jogodavelha extends JFrame {
 
             btn.setText(jogador2.simbolo);
             xo = true;
+        }
+
+    }
+
+    public void verificarVitoria() {
+        if (bt[0].getText().equals(bt[1].getText())
+                && bt[1].getText().equals(bt[2].getText())
+                && !bt[0].getText().isEmpty()){
+
+            JOptionPane.showMessageDialog(null, "Temos um vencedor !");
+
         }
     }
 }
