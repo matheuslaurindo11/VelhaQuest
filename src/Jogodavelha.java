@@ -35,9 +35,9 @@ public class Jogodavelha extends JFrame {
         } else if (sexo1.equals("2")) {
             nome1 = JOptionPane.showInputDialog(
                     "Escolha o seu personagem:\n\n"
-                            + "1 - Julia\n"
-                            + "2 - Larissa\n"
-                            + "3 - Isabela"
+                            + "1 - Julia \n"
+                            + "2 - Larissa \n"
+                            + "3 - Isabela "
             );
 
 
@@ -68,12 +68,12 @@ public class Jogodavelha extends JFrame {
         } else if (sexo2.equals("2")) {
             nome2 = JOptionPane.showInputDialog(
                     "Escolha o seu personagem:\n\n"
-                            + "1 - Julia\n"
-                            + "2 - Larissa\n"
-                            + "3 - Isabela"
+                            + "1 - Julia \n"
+                            + "2 - Larissa \n"
+                            + "3 - Isabela "
             );
             if (nome2.equals("1")) {
-                nome2 = "Julia";
+                nome2 = " Julia ";
             } else if (nome2.equals("2")) {
                 nome2 = "Larissa";
             } else if (nome2.equals("3")) {
@@ -95,8 +95,8 @@ public class Jogodavelha extends JFrame {
 
 
         jogadores = new JLabel(
-                jogador1.nome + " (" + jogador1.simbolo + ") vs" +
-                        jogador2.nome + " (" + jogador2.simbolo + ")"
+                jogador1.nome + " (" + jogador1.simbolo + ") vs " +
+                        jogador2.nome + " (" + jogador2.simbolo + " ) "
         );
         add(jogadores);
         jogadores.setBounds(350, 20, 300, 30);
@@ -164,10 +164,52 @@ public class Jogodavelha extends JFrame {
     public void verificarVitoria() {
         if (bt[0].getText().equals(bt[1].getText())
                 && bt[1].getText().equals(bt[2].getText())
-                && !bt[0].getText().isEmpty()){
+                && !bt[0].getText().isEmpty()) {
 
             JOptionPane.showMessageDialog(null, "Temos um vencedor !");
 
         }
+        if (bt[3].getText().equals(bt[4].getText())
+                && bt[4].getText().equals(bt[5].getText())
+                && !bt[3].getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, " Temos um vencedor !");
+        }
+        if (bt[6].getText().equals(bt[7].getText())
+                && bt[7].getText().equals(bt[8].getText())
+                && !bt[6].getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Temos um vencedor !!");
+        }
+        if (bt[0].getText().equals(bt[3].getText())
+                && bt[3].getText().equals(bt[6].getText())
+                && !bt[0].getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Temos um vencedor !!");
+        }
+        if (bt[0].getText().equals(bt[3].getText())
+                && bt[3].getText().equals(bt[6].getText())
+                && !bt[0].getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Temos um vencedor !!");
+        }
+        if (bt[1].getText().equals(bt[4].getText())
+            && bt[4].getText().equals(bt[7].getText())
+            && !bt[1].getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Temos um vencedor !!");
+        }
+        if (bt[2].getText().equals(bt[5].getText())
+            && bt[5].getText().equals(bt [8].getText())
+            && !bt[2].getText().isEmpty()){
+            JOptionPane.showMessageDialog(null,"Temos um vencedor !!!");
+
+        }
+        if (bt[0].getText().equals(bt[4].getText())
+            && bt[4].getText().equals(bt[8].getText())
+        && !bt[0].getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Temos um vencedor !!!");
+        }
+        if (bt[2].getText().equals(bt[4].getText())
+            && bt[4].getText().equals(bt[6].getText())
+        && !bt[2].getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Temos um vencedor !!!!");
+        }
+
     }
 }
