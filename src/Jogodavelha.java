@@ -1,6 +1,8 @@
 import javax.swing.*;
 
 public class Jogodavelha extends JFrame {
+    int jogadas = 0;
+    boolean venceu = false;
     JButton[] bt = new JButton[9];
     boolean xo = false;
     boolean[] click = new boolean[9];
@@ -129,15 +131,18 @@ public class Jogodavelha extends JFrame {
         for (int i = 0; i < 9; i++) {
             int posicao = i;
             bt[posicao].addActionListener(new java.awt.event.ActionListener() {
-
+                //lumiere
                 @Override
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
 
                     if (click[posicao] == false) {
-
                         click[posicao] = true;
                         mudar(bt[posicao]);
+                        jogadas++;
                         verificarVitoria();
+                        if (venceu == false && jogadas == 9) {
+                            JOptionPane.showMessageDialog(null, " Resultado Empate !!");
+                        }
 
                     }
                 }
@@ -167,48 +172,55 @@ public class Jogodavelha extends JFrame {
                 && !bt[0].getText().isEmpty()) {
 
             JOptionPane.showMessageDialog(null, "Temos um vencedor !");
-
+            venceu = true;
         }
         if (bt[3].getText().equals(bt[4].getText())
                 && bt[4].getText().equals(bt[5].getText())
                 && !bt[3].getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, " Temos um vencedor !");
+            venceu = true;
         }
         if (bt[6].getText().equals(bt[7].getText())
                 && bt[7].getText().equals(bt[8].getText())
                 && !bt[6].getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Temos um vencedor !!");
+            venceu = true;
         }
         if (bt[0].getText().equals(bt[3].getText())
                 && bt[3].getText().equals(bt[6].getText())
                 && !bt[0].getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Temos um vencedor !!");
+            venceu = true;
         }
         if (bt[0].getText().equals(bt[3].getText())
                 && bt[3].getText().equals(bt[6].getText())
                 && !bt[0].getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Temos um vencedor !!");
+            venceu = true;
         }
         if (bt[1].getText().equals(bt[4].getText())
-            && bt[4].getText().equals(bt[7].getText())
-            && !bt[1].getText().isEmpty()){
+                && bt[4].getText().equals(bt[7].getText())
+                && !bt[1].getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Temos um vencedor !!");
+            venceu = true;
         }
         if (bt[2].getText().equals(bt[5].getText())
-            && bt[5].getText().equals(bt [8].getText())
-            && !bt[2].getText().isEmpty()){
-            JOptionPane.showMessageDialog(null,"Temos um vencedor !!!");
-
+                && bt[5].getText().equals(bt[8].getText())
+                && !bt[2].getText().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Temos um vencedor !!!");
+            venceu = true;
         }
         if (bt[0].getText().equals(bt[4].getText())
-            && bt[4].getText().equals(bt[8].getText())
-        && !bt[0].getText().isEmpty()){
+                && bt[4].getText().equals(bt[8].getText())
+                && !bt[0].getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Temos um vencedor !!!");
+            venceu = true;
         }
         if (bt[2].getText().equals(bt[4].getText())
-            && bt[4].getText().equals(bt[6].getText())
-        && !bt[2].getText().isEmpty()){
+                && bt[4].getText().equals(bt[6].getText())
+                && !bt[2].getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Temos um vencedor !!!!");
+            venceu = true;
         }
 
     }
