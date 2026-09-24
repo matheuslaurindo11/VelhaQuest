@@ -1,6 +1,35 @@
 import javax.swing.*;
+import java.util.Random;
 
 public class Jogodavelha extends JFrame {
+    Random random = new Random();
+
+
+    private void reiniciarjogo() {
+        jogadas = 0;
+        venceu = false;
+        xo = false;
+        for (int i = 0; i < 9; i++) {
+            bt[i].setText("");
+            click[i] = false;
+        }
+    }
+
+    private void jogadaMaquina() {
+        if (jogadas >= 9) {
+            return;
+        }
+        int posicao = random.nextInt(9);
+
+        while (click[posicao]) {
+            posicao = random.nextInt(9);
+        }
+
+        click[posicao] = true;
+        mudar(bt[posicao]);
+    }
+
+
     int jogadas = 0;
     boolean venceu = false;
     JButton[] bt = new JButton[9];
@@ -138,8 +167,27 @@ public class Jogodavelha extends JFrame {
                     if (click[posicao] == false) {
                         click[posicao] = true;
                         mudar(bt[posicao]);
+
                         jogadas++;
+
                         verificarVitoria();
+                        if (venceu){
+                            int resposta = JOptionPane.showConfirmDialog(null, "Deseja reiniciar o jogo?", "Reiniciar", JOptionPane.YES_NO_OPTION);
+                            if (resposta == JOptionPane.YES_OPTION) {
+
+                            }
+                            if (resposta == JOptionPane.YES_NO_OPTION ){
+                                reiniciarjogo();
+                            }
+                            return;
+                        }
+
+                        if (venceu == false && jogadas < 9) {
+                            jogadaMaquina();
+                            jogadas++;
+                            verificarVitoria();
+                        }
+
                         if (venceu == false && jogadas == 9) {
                             JOptionPane.showMessageDialog(null, " Resultado Empate !!");
                         }
@@ -167,6 +215,8 @@ public class Jogodavelha extends JFrame {
     }
 
     public void verificarVitoria() {
+
+
         if (bt[0].getText().equals(bt[1].getText())
                 && bt[1].getText().equals(bt[2].getText())
                 && !bt[0].getText().isEmpty()) {
