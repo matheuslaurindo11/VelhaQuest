@@ -1,4 +1,4 @@
-🎮 VelhaQuest
+# 🎮 VelhaQuest
 
 VelhaQuest é um pequeno projeto em Java inspirado no clássico Jogo da Velha, com a ideia de dar um toque mais divertido ao jogo.
 
@@ -29,6 +29,12 @@ A ideia é ir melhorando o projeto aos poucos, adicionando novas funcionalidades
 - Verificação de empate após 9 jogadas
 - Correção para não exibir empate quando existe um vencedor
 
+### v0.0.5
+- Modo contra máquina
+- Máquina escolhe posições disponíveis aleatoriamente
+- Sistema de reinício de partida
+- Possibilidade de iniciar uma nova partida após vitória
+
 ---
 
 ## 🛠️ Tecnologias
@@ -39,6 +45,6 @@ A ideia é ir melhorando o projeto aos poucos, adicionando novas funcionalidades
 - Git
 - GitHub
 
----
 
-📌 Projeto em desenvolvimento.
+
+📌 Projeto finalizado nesta etapa.
