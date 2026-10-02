@@ -55,6 +55,17 @@ public class Jogodavelha extends JFrame {
 
     public void verificarVitoria() {
         // Verificar linhas
+        if (!venceu && jogadas == 9){
+            JOptionPane.showMessageDialog
+                    (null,
+                    "Empate !!! Fechou o tempo chefe ACABOU..... "
+                    );
+        }
+
+
+
+
+
         if (bt[0].getText().equals(bt[1].getText()) && bt[1].getText().equals(bt[2].getText()) && !bt[0].getText().equals("")) {
             venceu = true;
         }
@@ -226,6 +237,12 @@ public class Jogodavelha extends JFrame {
                                     jogadas++;
 
                                     verificarVitoria();
+                                    if (!venceu && jogadas == 9){
+                                        JOptionPane.showMessageDialog
+                                                (null,
+                                                        "Empate !! Fechou o tempo chefe ACABOU..... "
+                                                );
+                                    }
                                     if (venceu) {
                                         int reposta = JOptionPane.showConfirmDialog(null,
                                                 "Deseja reiniciar o jogo?", "Reiniciar", JOptionPane.YES_NO_OPTION);
